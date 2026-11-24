@@ -1,0 +1,1649 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>推特每日比赛 - 官方视频门户 | 每日创意挑战与原创影像社区</title>
+<meta name="description" content="推特每日比赛官方网站，专注每日创意挑战与原创短视频竞技，汇聚行业领先创作者、企业品牌与品质内容生态，持续运营值得信赖的比赛与报名平台。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1d2b'/%3E%3Cpath d='M18 44V20h7l7 12 7-12h7v24h-6V31l-8 13-8-13v13z' fill='%23ffd447'/%3E%3Ccircle cx='48' cy='22' r='5' fill='%2357e0b0'/%3E%3C/svg%3E">
+<style>
+:root{
+  --tdm-bg:#12141f;
+  --tdm-bg-2:#191c2b;
+  --tdm-panel:#1f2335;
+  --tdm-panel-2:#252a40;
+  --tdm-line:#313753;
+  --tdm-ink:#eef0f8;
+  --tdm-ink-2:#a9b0cc;
+  --tdm-ink-3:#767e9e;
+  --tdm-accent:#ffd447;
+  --tdm-accent-2:#57e0b0;
+  --tdm-hot:#ff5c7c;
+  --tdm-blue:#6ea8ff;
+  --tdm-radius:16px;
+  --tdm-head-h:104px;
+  --tdm-shadow:0 18px 40px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tdm-head-h) + 16px)}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(900px 480px at 82% -8%, rgba(110,168,255,.16), transparent 62%),
+    radial-gradient(760px 440px at 6% 4%, rgba(255,212,71,.10), transparent 60%),
+    var(--tdm-bg);
+  color:var(--tdm-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;line-height:1.28;font-weight:800;letter-spacing:.2px}
+p{margin:0}
+.tdm-wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+.tdm-section{padding:64px 0 8px}
+.tdm-section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:26px}
+.tdm-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--tdm-accent-2);
+}
+.tdm-kicker::before{content:"";width:22px;height:2px;background:var(--tdm-accent-2);border-radius:2px}
+.tdm-h2{font-size:clamp(24px,3vw,34px);margin-top:6px}
+.tdm-h2 em{font-style:normal;color:var(--tdm-accent)}
+.tdm-lead{color:var(--tdm-ink-2);font-size:15px;max-width:62ch}
+.tdm-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 20px;border-radius:999px;border:1px solid transparent;
+  font-size:14px;font-weight:700;letter-spacing:.4px;transition:.22s ease;
+}
+.tdm-btn-primary{background:var(--tdm-accent);color:#231d05}
+.tdm-btn-primary:hover{background:#ffe06e;transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,212,71,.24)}
+.tdm-btn-ghost{background:transparent;color:var(--tdm-ink);border-color:var(--tdm-line)}
+.tdm-btn-ghost:hover{border-color:var(--tdm-accent-2);color:var(--tdm-accent-2);transform:translateY(-2px)}
+.tdm-btn-mini{padding:7px 14px;font-size:12px;border-radius:999px}
+.tdm-tag{
+  display:inline-block;padding:3px 10px;border-radius:999px;
+  font-size:11.5px;font-weight:700;letter-spacing:.4px;
+  background:rgba(110,168,255,.14);color:#a8c8ff;border:1px solid rgba(110,168,255,.28);
+}
+.tdm-tag-gold{background:rgba(255,212,71,.13);color:var(--tdm-accent);border-color:rgba(255,212,71,.32)}
+.tdm-tag-mint{background:rgba(87,224,176,.12);color:var(--tdm-accent-2);border-color:rgba(87,224,176,.3)}
+.tdm-tag-hot{background:rgba(255,92,124,.14);color:#ff9db2;border-color:rgba(255,92,124,.3)}
+
+/* ============ 吸顶：公告条 + 页头 ============ */
+.tdm-sticky-shell{
+  position:sticky;top:0;z-index:90;
+  background:rgba(18,20,31,.94);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--tdm-line);
+}
+.tdm-notice-bar{
+  background:linear-gradient(90deg,#2a2140 0%,#1d2436 52%,#17302c 100%);
+  border-bottom:1px solid var(--tdm-line);
+  font-size:12.5px;
+}
+.tdm-notice-inner{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:8px 0;color:var(--tdm-ink-2);
+}
+.tdm-notice-label{
+  display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+  font-weight:800;letter-spacing:1px;color:var(--tdm-accent);
+}
+.tdm-notice-label::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--tdm-hot);
+  box-shadow:0 0 0 0 rgba(255,92,124,.7);animation:tdmPulse 2.1s infinite;
+}
+@keyframes tdmPulse{
+  0%{box-shadow:0 0 0 0 rgba(255,92,124,.6)}
+  70%{box-shadow:0 0 0 9px rgba(255,92,124,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,92,124,0)}
+}
+.tdm-notice-track{display:flex;gap:22px;flex-wrap:wrap;min-width:0}
+.tdm-notice-item{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.tdm-notice-item b{color:var(--tdm-ink);font-weight:700}
+.tdm-notice-dot{color:var(--tdm-ink-3)}
+.tdm-header{padding:14px 0}
+.tdm-header-inner{display:flex;align-items:center;gap:20px}
+.tdm-brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.tdm-brand-mark{
+  width:42px;height:42px;border-radius:13px;flex-shrink:0;
+  background:linear-gradient(145deg,#ffd447,#ff9d3d 58%,#ff5c7c);
+  display:grid;place-items:center;color:#20180a;font-weight:900;font-size:19px;
+  box-shadow:0 8px 20px rgba(255,157,61,.28);
+}
+.tdm-brand-text strong{display:block;font-size:16.5px;letter-spacing:.6px}
+.tdm-brand-text span{display:block;font-size:11px;color:var(--tdm-ink-3);letter-spacing:2.6px;text-transform:uppercase}
+.tdm-nav{margin-left:auto;display:flex;align-items:center;gap:6px}
+.tdm-nav a{
+  padding:8px 13px;border-radius:9px;font-size:14px;color:var(--tdm-ink-2);
+  transition:.2s ease;font-weight:600;white-space:nowrap;
+}
+.tdm-nav a:hover{color:var(--tdm-ink);background:var(--tdm-panel)}
+.tdm-header-tools{display:flex;align-items:center;gap:10px;margin-left:8px}
+.tdm-search{
+  display:flex;align-items:center;gap:8px;
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);
+  border-radius:999px;padding:7px 8px 7px 14px;
+}
+.tdm-search input{
+  width:132px;background:transparent;border:0;outline:none;color:var(--tdm-ink);
+  font-size:13.5px;padding:2px 0;
+}
+.tdm-search input::placeholder{color:var(--tdm-ink-3)}
+.tdm-search button{
+  border:0;background:var(--tdm-accent);color:#241d05;font-weight:800;
+  font-size:12px;padding:6px 12px;border-radius:999px;
+}
+.tdm-burger{
+  display:none;width:42px;height:42px;border-radius:12px;
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);color:var(--tdm-ink);
+  align-items:center;justify-content:center;
+}
+.tdm-burger span{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.tdm-burger span::before,.tdm-burger span::after{
+  content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;
+}
+.tdm-burger span::before{top:-6px}
+.tdm-burger span::after{top:6px}
+.tdm-mobile-panel{display:none;border-top:1px solid var(--tdm-line);padding:10px 0 16px}
+.tdm-mobile-panel.is-open{display:block}
+.tdm-mobile-panel a{display:block;padding:11px 8px;border-radius:10px;font-size:14.5px;color:var(--tdm-ink-2)}
+.tdm-mobile-panel a:hover{background:var(--tdm-panel);color:var(--tdm-ink)}
+.tdm-mobile-search{display:flex;gap:8px;margin:8px 0 6px}
+.tdm-mobile-search input{
+  flex:1;min-width:0;background:var(--tdm-panel);border:1px solid var(--tdm-line);
+  border-radius:10px;padding:10px 12px;color:var(--tdm-ink);outline:none;font-size:14px;
+}
+
+/* 搜索反馈 */
+.tdm-search-feedback{
+  display:none;margin-top:16px;padding:12px 16px;border-radius:12px;
+  background:var(--tdm-panel);border:1px dashed var(--tdm-line);
+  color:var(--tdm-ink-2);font-size:13.5px;
+}
+.tdm-search-feedback.is-on{display:block}
+.tdm-search-feedback b{color:var(--tdm-accent)}
+
+/* ============ 首屏：全幅主视觉背景 + 浮动文字 ============ */
+.tdm-hero{position:relative;overflow:hidden;padding:70px 0 58px}
+.tdm-hero-bg{position:absolute;inset:0;z-index:0;opacity:.95}
+.tdm-hero-bg svg{width:100%;height:100%;object-fit:cover}
+.tdm-hero-veil{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(100deg,rgba(18,20,31,.96) 0%,rgba(18,20,31,.86) 40%,rgba(18,20,31,.5) 72%,rgba(18,20,31,.72) 100%);
+}
+.tdm-hero-inner{position:relative;z-index:2;max-width:760px}
+.tdm-hero-badges{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+.tdm-hero h1{
+  font-size:clamp(38px,6.4vw,72px);letter-spacing:1px;line-height:1.06;
+  text-shadow:0 8px 34px rgba(0,0,0,.5);
+}
+.tdm-hero h1 .tdm-h1-gold{
+  background:linear-gradient(100deg,#ffd447,#ff9d3d 55%,#ff5c7c);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tdm-hero-sub{
+  margin-top:14px;font-size:clamp(15px,1.8vw,19px);color:#dfe3f3;
+  font-weight:600;letter-spacing:.6px;
+}
+.tdm-hero-desc{margin-top:18px;color:var(--tdm-ink-2);font-size:15px;max-width:60ch}
+.tdm-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.tdm-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:36px;
+  max-width:600px;
+}
+.tdm-stat{
+  background:rgba(31,35,53,.72);border:1px solid var(--tdm-line);
+  border-radius:14px;padding:16px 16px 14px;backdrop-filter:blur(6px);
+}
+.tdm-stat b{display:block;font-size:23px;color:var(--tdm-accent);letter-spacing:.5px}
+.tdm-stat span{display:block;font-size:12px;color:var(--tdm-ink-2);margin-top:2px}
+
+/* ============ 焦点区 ============ */
+.tdm-focus-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;align-items:start}
+.tdm-focus-main{
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);
+  border-radius:var(--tdm-radius);overflow:hidden;box-shadow:var(--tdm-shadow);
+  transition:.25s ease;
+}
+.tdm-focus-main:hover{transform:translateY(-4px);border-color:#46537e}
+.tdm-focus-cover{position:relative;aspect-ratio:16/9;background:#0e1018}
+.tdm-focus-cover svg{width:100%;height:100%}
+.tdm-play{
+  position:absolute;left:16px;bottom:14px;display:inline-flex;align-items:center;gap:8px;
+  background:rgba(10,12,20,.78);border:1px solid rgba(255,255,255,.18);
+  padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:700;color:#fff;
+}
+.tdm-play::before{
+  content:"";width:0;height:0;border-left:9px solid var(--tdm-accent);
+  border-top:6px solid transparent;border-bottom:6px solid transparent;
+}
+.tdm-focus-body{padding:20px 22px 22px}
+.tdm-focus-body h3{font-size:20px;margin:10px 0 8px}
+.tdm-focus-body p{color:var(--tdm-ink-2);font-size:14px}
+.tdm-focus-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:12.5px;color:var(--tdm-ink-3)}
+.tdm-list-panel{display:flex;flex-direction:column;gap:12px}
+.tdm-vitem{
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:13px;
+  padding:15px 17px;transition:.22s ease;
+}
+.tdm-vitem:hover{background:var(--tdm-panel-2);border-color:#46537e;transform:translateX(4px)}
+.tdm-vitem-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.tdm-vitem h3{font-size:15px;margin-bottom:4px}
+.tdm-vitem p{font-size:13px;color:var(--tdm-ink-2);margin-top:6px}
+.tdm-vitem-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:10px;font-size:12px;color:var(--tdm-ink-3)}
+.tdm-vitem-foot .tdm-ops{margin-left:auto;display:flex;gap:6px}
+.tdm-op{
+  border:1px solid var(--tdm-line);background:transparent;color:var(--tdm-ink-2);
+  border-radius:999px;padding:4px 11px;font-size:11.5px;transition:.18s ease;font-weight:600;
+}
+.tdm-op:hover{color:var(--tdm-ink);border-color:var(--tdm-accent-2)}
+.tdm-op.is-liked{color:var(--tdm-hot);border-color:rgba(255,92,124,.55);background:rgba(255,92,124,.1)}
+.tdm-op.is-saved{color:var(--tdm-accent);border-color:rgba(255,212,71,.55);background:rgba(255,212,71,.1)}
+
+/* ============ 关键词解析长文 ============ */
+.tdm-deep{
+  background:linear-gradient(160deg,var(--tdm-panel) 0%,#1a1e2e 100%);
+  border:1px solid var(--tdm-line);border-radius:20px;padding:34px clamp(20px,4vw,44px);
+}
+.tdm-deep h3{font-size:18px;margin-top:26px;margin-bottom:10px;color:#fff}
+.tdm-deep h3:first-of-type{margin-top:8px}
+.tdm-deep h3::before{content:"▍";color:var(--tdm-accent);margin-right:4px}
+.tdm-deep p{color:var(--tdm-ink-2);font-size:14.5px;margin-bottom:12px}
+.tdm-deep strong{color:var(--tdm-accent-2);font-weight:700}
+.tdm-deep-grid{display:grid;grid-template-columns:1fr;gap:0}
+
+/* ============ 专题 ============ */
+.tdm-topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tdm-topic{
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:var(--tdm-radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.24s ease;
+}
+.tdm-topic:hover{transform:translateY(-5px);border-color:#4a5684;box-shadow:var(--tdm-shadow)}
+.tdm-topic-cover{aspect-ratio:16/9;background:#0e1018}
+.tdm-topic-cover svg{width:100%;height:100%}
+.tdm-topic-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tdm-topic-body h3{font-size:17px}
+.tdm-topic-body>p{font-size:13.5px;color:var(--tdm-ink-2)}
+.tdm-topic-list{border-top:1px dashed var(--tdm-line);padding-top:10px;margin-top:auto;display:flex;flex-direction:column;gap:7px}
+.tdm-topic-list li{font-size:13px;color:var(--tdm-ink-2);display:flex;gap:8px;align-items:baseline}
+.tdm-topic-list li::before{content:"—";color:var(--tdm-accent);flex-shrink:0}
+.tdm-topic-status{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:var(--tdm-ink-3)}
+
+/* ============ 创作者：双列简介 ============ */
+.tdm-author-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.tdm-author{
+  display:flex;gap:16px;background:var(--tdm-panel);border:1px solid var(--tdm-line);
+  border-radius:var(--tdm-radius);padding:20px;transition:.24s ease;align-items:flex-start;
+}
+.tdm-author:hover{border-color:#4a5684;background:var(--tdm-panel-2);transform:translateY(-3px)}
+.tdm-avatar{
+  width:60px;height:60px;border-radius:16px;flex-shrink:0;display:grid;place-items:center;
+  font-weight:900;font-size:22px;color:#141726;letter-spacing:1px;
+}
+.tdm-avatar-a{background:linear-gradient(140deg,#ffd447,#ff9d3d)}
+.tdm-avatar-b{background:linear-gradient(140deg,#57e0b0,#3aa9c9)}
+.tdm-avatar-c{background:linear-gradient(140deg,#6ea8ff,#8f7bff)}
+.tdm-avatar-d{background:linear-gradient(140deg,#ff5c7c,#ff9d3d)}
+.tdm-avatar-e{background:linear-gradient(140deg,#c4e05c,#57e0b0)}
+.tdm-avatar-f{background:linear-gradient(140deg,#ffb3e6,#8f7bff)}
+.tdm-author-info{min-width:0;flex:1}
+.tdm-author-info h3{font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tdm-author-info h3 .tdm-verified{
+  font-size:10.5px;font-weight:800;color:var(--tdm-accent-2);
+  border:1px solid rgba(87,224,176,.4);border-radius:999px;padding:1px 7px;letter-spacing:.6px;
+}
+.tdm-author-field{font-size:12.5px;color:var(--tdm-accent);font-weight:700;margin-top:3px}
+.tdm-author-nums{display:flex;gap:14px;font-size:12px;color:var(--tdm-ink-3);margin:8px 0 8px;flex-wrap:wrap}
+.tdm-author-nums b{color:var(--tdm-ink);font-weight:700}
+.tdm-author-info p{font-size:13px;color:var(--tdm-ink-2)}
+.tdm-author-more{
+  margin-top:10px;background:transparent;border:1px solid var(--tdm-line);
+  color:var(--tdm-ink-2);border-radius:999px;padding:5px 13px;font-size:12px;font-weight:600;transition:.18s;
+}
+.tdm-author-more:hover{color:var(--tdm-accent-2);border-color:var(--tdm-accent-2)}
+
+/* ============ 评论：双列短评 ============ */
+.tdm-comment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.tdm-comment{
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:14px;
+  padding:16px 18px;transition:.22s ease;
+}
+.tdm-comment:hover{border-color:#4a5684;transform:translateY(-3px)}
+.tdm-comment-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.tdm-comment-head .tdm-avatar{width:34px;height:34px;border-radius:11px;font-size:13px}
+.tdm-comment-head strong{font-size:13.5px}
+.tdm-comment-head span{font-size:11.5px;color:var(--tdm-ink-3);display:block}
+.tdm-stars{margin-left:auto;color:var(--tdm-accent);font-size:12px;letter-spacing:1px;flex-shrink:0}
+.tdm-comment p{font-size:13.5px;color:var(--tdm-ink-2)}
+.tdm-comment-foot{margin-top:10px;font-size:11.5px;color:var(--tdm-ink-3);display:flex;gap:12px;flex-wrap:wrap}
+
+/* ============ 榜单 ============ */
+.tdm-rank-wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.tdm-rank-list{background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:var(--tdm-radius);overflow:hidden}
+.tdm-rank-row{
+  display:flex;gap:14px;align-items:center;padding:14px 18px;
+  border-bottom:1px solid var(--tdm-line);transition:.18s ease;
+}
+.tdm-rank-row:last-child{border-bottom:0}
+.tdm-rank-row:hover{background:var(--tdm-panel-2)}
+.tdm-rank-no{
+  width:28px;height:28px;flex-shrink:0;border-radius:9px;display:grid;place-items:center;
+  font-size:12.5px;font-weight:900;background:var(--tdm-panel-2);color:var(--tdm-ink-2);
+  border:1px solid var(--tdm-line);
+}
+.tdm-rank-row:nth-child(1) .tdm-rank-no{background:linear-gradient(140deg,#ffd447,#ff9d3d);color:#20180a;border-color:transparent}
+.tdm-rank-row:nth-child(2) .tdm-rank-no{background:linear-gradient(140deg,#dbe4f5,#a9b0cc);color:#1a1d2b;border-color:transparent}
+.tdm-rank-row:nth-child(3) .tdm-rank-no{background:linear-gradient(140deg,#ff9d3d,#c96a2b);color:#20180a;border-color:transparent}
+.tdm-rank-body{min-width:0;flex:1}
+.tdm-rank-body h3{font-size:14.5px;margin-bottom:2px}
+.tdm-rank-body span{font-size:12px;color:var(--tdm-ink-3)}
+.tdm-rank-score{font-size:13px;font-weight:800;color:var(--tdm-accent-2);flex-shrink:0}
+.tdm-aside-card{
+  background:linear-gradient(160deg,#241f38 0%,#1a2130 100%);
+  border:1px solid var(--tdm-line);border-radius:var(--tdm-radius);padding:22px;
+}
+.tdm-aside-card h3{font-size:16px;margin-bottom:8px}
+.tdm-aside-card p{font-size:13.5px;color:var(--tdm-ink-2)}
+.tdm-aside-card ul{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.tdm-aside-card li{font-size:13px;color:var(--tdm-ink-2);display:flex;gap:9px;align-items:baseline}
+.tdm-aside-card li::before{content:"◆";color:var(--tdm-accent);font-size:9px}
+
+/* ============ 动态 / 合作墙 / FAQ ============ */
+.tdm-third-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;align-items:start}
+.tdm-news-card,.tdm-faq-card,.tdm-partner-card{
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:var(--tdm-radius);padding:22px;
+}
+.tdm-news-card h3,.tdm-faq-card h3,.tdm-partner-card h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.tdm-news-card h3::before,.tdm-faq-card h3::before,.tdm-partner-card h3::before{
+  content:"";width:4px;height:16px;border-radius:2px;background:var(--tdm-accent);
+}
+.tdm-news-list{display:flex;flex-direction:column;gap:14px}
+.tdm-news-list li{display:flex;gap:12px;align-items:flex-start}
+.tdm-news-date{
+  font-size:11px;font-weight:800;color:var(--tdm-accent-2);background:rgba(87,224,176,.1);
+  border:1px solid rgba(87,224,176,.28);border-radius:8px;padding:4px 8px;flex-shrink:0;line-height:1.5;
+}
+.tdm-news-list h4{font-size:13.5px;margin-bottom:2px}
+.tdm-news-list p{font-size:12.5px;color:var(--tdm-ink-2)}
+.tdm-faq-card details{border-bottom:1px solid var(--tdm-line);padding:11px 0}
+.tdm-faq-card details:last-child{border-bottom:0}
+.tdm-faq-card summary{
+  list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;color:var(--tdm-ink);
+  display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+}
+.tdm-faq-card summary::-webkit-details-marker{display:none}
+.tdm-faq-card summary::after{content:"+";color:var(--tdm-accent);font-weight:900;font-size:16px;line-height:1}
+.tdm-faq-card details[open] summary::after{content:"−"}
+.tdm-faq-card details p{font-size:12.8px;color:var(--tdm-ink-2);margin-top:8px}
+.tdm-partner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tdm-partner{
+  background:var(--tdm-panel-2);border:1px solid var(--tdm-line);border-radius:11px;
+  padding:13px 12px;font-size:12.5px;font-weight:700;color:var(--tdm-ink-2);
+  display:flex;align-items:center;gap:8px;transition:.2s ease;
+}
+.tdm-partner:hover{color:var(--tdm-ink);border-color:var(--tdm-accent-2)}
+.tdm-partner i{
+  width:8px;height:8px;border-radius:3px;background:var(--tdm-accent);flex-shrink:0;
+}
+.tdm-partner:nth-child(2n) i{background:var(--tdm-accent-2)}
+.tdm-partner:nth-child(3n) i{background:var(--tdm-blue)}
+.tdm-partner:nth-child(4n) i{background:var(--tdm-hot)}
+
+/* ============ 投稿 CTA ============ */
+.tdm-cta{
+  margin-top:56px;background:
+    linear-gradient(120deg,rgba(255,212,71,.14),rgba(87,224,176,.1)),
+    var(--tdm-panel);
+  border:1px solid var(--tdm-line);border-radius:22px;
+  padding:36px clamp(20px,4vw,46px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;
+}
+.tdm-cta h2{font-size:clamp(21px,2.6vw,28px);max-width:22ch}
+.tdm-cta p{color:var(--tdm-ink-2);font-size:14px;margin-top:8px;max-width:52ch}
+.tdm-cta .tdm-hero-actions{margin-top:0}
+
+/* ============ 图片索引（图文） ============ */
+.tdm-index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.tdm-index-card{
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:14px;overflow:hidden;
+  transition:.22s ease;
+}
+.tdm-index-card:hover{transform:translateY(-4px);border-color:#4a5684}
+.tdm-index-cover{aspect-ratio:16/9;background:#0e1018}
+.tdm-index-cover svg{width:100%;height:100%}
+.tdm-index-body{padding:16px 18px 18px}
+.tdm-index-body h3{font-size:15px;margin-bottom:6px}
+.tdm-index-body p{font-size:13px;color:var(--tdm-ink-2)}
+.tdm-index-body .tdm-vitem-foot{margin-top:10px}
+
+/* ============ 页脚 ============ */
+.tdm-footer{margin-top:72px;border-top:1px solid var(--tdm-line);background:#0d0f18;padding:48px 0 26px}
+.tdm-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.tdm-footer-brand p{font-size:13px;color:var(--tdm-ink-2);margin-top:12px;max-width:34ch}
+.tdm-footer h4{font-size:13px;color:var(--tdm-ink);margin-bottom:12px;letter-spacing:.6px}
+.tdm-footer li{margin-bottom:8px;font-size:12.8px;color:var(--tdm-ink-3)}
+.tdm-footer li a:hover{color:var(--tdm-accent-2)}
+.tdm-footer-bottom{
+  margin-top:34px;padding-top:20px;border-top:1px solid var(--tdm-line);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 22px;
+  font-size:12px;color:var(--tdm-ink-3);
+}
+.tdm-footer-bottom a:hover{color:var(--tdm-accent-2)}
+
+/* ============ 弹窗 / Toast / 回到顶部 ============ */
+.tdm-modal-mask{
+  position:fixed;inset:0;z-index:200;background:rgba(8,9,15,.72);
+  backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;
+}
+.tdm-modal-mask.is-open{display:flex}
+.tdm-modal{
+  width:min(520px,100%);background:var(--tdm-bg-2);border:1px solid var(--tdm-line);
+  border-radius:18px;padding:26px;box-shadow:var(--tdm-shadow);max-height:86vh;overflow:auto;
+  animation:tdmPop .22s ease;
+}
+@keyframes tdmPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.tdm-modal h3{font-size:18px;margin-bottom:10px}
+.tdm-modal p{font-size:13.5px;color:var(--tdm-ink-2)}
+.tdm-modal label{display:block;font-size:12.5px;color:var(--tdm-ink-2);margin:14px 0 6px;font-weight:700}
+.tdm-modal input,.tdm-modal textarea,.tdm-modal select{
+  width:100%;background:var(--tdm-panel);border:1px solid var(--tdm-line);border-radius:10px;
+  padding:10px 12px;color:var(--tdm-ink);font-size:13.5px;outline:none;font-family:inherit;
+}
+.tdm-modal input:focus,.tdm-modal textarea:focus,.tdm-modal select:focus{border-color:var(--tdm-accent-2)}
+.tdm-modal textarea{resize:vertical;min-height:92px}
+.tdm-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
+.tdm-modal-close{
+  float:right;background:transparent;border:1px solid var(--tdm-line);color:var(--tdm-ink-2);
+  width:30px;height:30px;border-radius:9px;font-size:15px;line-height:1;
+}
+.tdm-modal-close:hover{color:var(--tdm-hot);border-color:var(--tdm-hot)}
+.tdm-copy-row{display:flex;gap:8px;margin-top:14px}
+.tdm-copy-row input{flex:1;min-width:0}
+.tdm-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:var(--tdm-accent);color:#221b05;font-weight:800;font-size:13.5px;
+  padding:11px 22px;border-radius:999px;z-index:300;opacity:0;pointer-events:none;
+  transition:.28s ease;box-shadow:0 14px 34px rgba(255,212,71,.3);
+}
+.tdm-toast.is-on{opacity:1;transform:translate(-50%,0)}
+.tdm-top-btn{
+  position:fixed;right:22px;bottom:26px;z-index:120;width:44px;height:44px;border-radius:14px;
+  background:var(--tdm-panel);border:1px solid var(--tdm-line);color:var(--tdm-accent);
+  display:none;place-items:center;font-size:17px;font-weight:900;transition:.2s ease;
+}
+.tdm-top-btn.is-on{display:grid}
+.tdm-top-btn:hover{border-color:var(--tdm-accent);transform:translateY(-3px)}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  :root{--tdm-head-h:96px}
+  .tdm-nav{display:none}
+  .tdm-header-tools .tdm-search{display:none}
+  .tdm-burger{display:inline-flex}
+  .tdm-header-inner{gap:12px}
+  .tdm-header-tools{margin-left:auto}
+  .tdm-focus-grid{grid-template-columns:1fr}
+  .tdm-rank-wrap{grid-template-columns:1fr}
+  .tdm-footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  :root{--tdm-head-h:88px}
+  .tdm-wrap{width:calc(100% - 28px)}
+  .tdm-hero{padding:48px 0 42px}
+  .tdm-stats{grid-template-columns:1fr;max-width:100%}
+  .tdm-header-tools .tdm-btn{display:none}
+  .tdm-section{padding:44px 0 6px}
+  .tdm-footer-grid{grid-template-columns:1fr}
+  .tdm-notice-inner{font-size:12px;gap:8px}
+  .tdm-topic-grid,.tdm-author-grid,.tdm-comment-grid,.tdm-index-grid,.tdm-third-grid{grid-template-columns:1fr}
+  .tdm-author{flex-direction:row}
+  .tdm-vitem-foot .tdm-ops{margin-left:0;width:100%}
+  .tdm-top-btn{right:14px;bottom:18px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== S1 公告条 + 页头（吸顶） ===== -->
+<div class="tdm-sticky-shell">
+  <div class="tdm-notice-bar">
+    <div class="tdm-wrap tdm-notice-inner">
+      <span class="tdm-notice-label">官方公告</span>
+      <div class="tdm-notice-track">
+        <span class="tdm-notice-item"><b>第 412 期每日比赛</b>「一分钟城市切片」已开赛</span>
+        <span class="tdm-notice-dot">·</span>
+        <span class="tdm-notice-item">冬季创作挑战赛报名通道 <b>11 月 30 日</b> 截止</span>
+        <span class="tdm-notice-dot">·</span>
+        <span class="tdm-notice-item">官方发布 <b>4K 高清素材包 v3.2</b>，创作者可免费下载</span>
+      </div>
+    </div>
+  </div>
+  <header class="tdm-header">
+    <div class="tdm-wrap tdm-header-inner">
+      <a class="tdm-brand" href="#top">
+        <span class="tdm-brand-mark">推</span>
+        <span class="tdm-brand-text">
+          <strong>推特每日比赛</strong>
+          <span>Daily Match Studio</span>
+        </span>
+      </a>
+      <nav class="tdm-nav" aria-label="主导航">
+        <a href="#focus">今日赛事</a>
+        <a href="#deep">赛事解析</a>
+        <a href="#topics">专题企划</a>
+        <a href="#authors">创作者</a>
+        <a href="#voices">口碑</a>
+        <a href="#rank">榜单</a>
+        <a href="#help">帮助</a>
+      </nav>
+      <div class="tdm-header-tools">
+        <form class="tdm-search" id="tdmSearchForm" role="search" onsubmit="return false;">
+          <input id="tdmSearchInput" type="search" placeholder="搜索赛事 / 创作者" aria-label="搜索赛事或创作者">
+          <button type="submit" id="tdmSearchBtn">搜索</button>
+        </form>
+        <button class="tdm-btn tdm-btn-primary tdm-btn-mini" type="button" data-open="submit">立即报名</button>
+        <button class="tdm-burger" type="button" id="tdmBurger" aria-label="展开导航" aria-expanded="false" aria-controls="tdmMobilePanel">
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="tdm-wrap tdm-mobile-panel" id="tdmMobilePanel">
+      <div class="tdm-mobile-search">
+        <input id="tdmMobileSearchInput" type="search" placeholder="搜索赛事、专题或创作者" aria-label="移动端搜索">
+        <button class="tdm-btn tdm-btn-primary tdm-btn-mini" type="button" id="tdmMobileSearchBtn">搜索</button>
+      </div>
+      <a href="#focus">今日赛事</a>
+      <a href="#deep">赛事解析</a>
+      <a href="#topics">专题企划</a>
+      <a href="#authors">创作者</a>
+      <a href="#voices">口碑</a>
+      <a href="#rank">榜单</a>
+      <a href="#help">帮助与投稿</a>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+  <div class="tdm-wrap">
+    <div class="tdm-search-feedback" id="tdmSearchFeedback" role="status" aria-live="polite"></div>
+  </div>
+
+  <!-- ===== S2 品牌首屏：全幅主视觉 + 浮动文字 ===== -->
+  <section class="tdm-hero" aria-labelledby="tdmHeroTitle">
+    <div class="tdm-hero-bg" aria-hidden="true">
+      <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" role="img" aria-label="推特每日比赛主视觉：深色竞技舞台与跳动的影像窗体">
+        <defs>
+          <linearGradient id="tdmSky" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#171a2a"/>
+            <stop offset=".55" stop-color="#1d2440"/>
+            <stop offset="1" stop-color="#132227"/>
+          </linearGradient>
+          <linearGradient id="tdmGlowA" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd447" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#ff9d3d" stop-opacity=".1"/>
+          </linearGradient>
+          <linearGradient id="tdmGlowB" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#57e0b0" stop-opacity=".8"/>
+            <stop offset="1" stop-color="#6ea8ff" stop-opacity=".05"/>
+          </linearGradient>
+          <radialGradient id="tdmSpot" cx=".72" cy=".34" r=".6">
+            <stop offset="0" stop-color="#ffd447" stop-opacity=".3"/>
+            <stop offset="1" stop-color="#ffd447" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1440" height="720" fill="url(#tdmSky)"/>
+        <rect width="1440" height="720" fill="url(#tdmSpot)"/>
+        <g opacity=".28" stroke="#6ea8ff" stroke-width="1">
+          <path d="M0 560 L1440 420" fill="none"/>
+          <path d="M0 620 L1440 480" fill="none"/>
+          <path d="M0 680 L1440 540" fill="none"/>
+          <path d="M180 0 L420 720" fill="none"/>
+          <path d="M420 0 L640 720" fill="none"/>
+          <path d="M1080 0 L900 720" fill="none"/>
+        </g>
+        <g>
+          <rect x="820" y="132" width="430" height="252" rx="22" fill="#0d1020" stroke="#3a4266" stroke-width="2"/>
+          <rect x="846" y="158" width="378" height="200" rx="14" fill="url(#tdmGlowA)" opacity=".55"/>
+          <path d="M990 210 L1080 258 L990 306 Z" fill="#171a2a" opacity=".85"/>
+          <rect x="846" y="372" width="150" height="10" rx="5" fill="#ffd447" opacity=".75"/>
+          <rect x="1006" y="372" width="86" height="10" rx="5" fill="#6ea8ff" opacity=".5"/>
+          <rect x="1102" y="372" width="122" height="10" rx="5" fill="#57e0b0" opacity=".45"/>
+        </g>
+        <g>
+          <rect x="880" y="452" width="300" height="150" rx="18" fill="#111423" stroke="#33405f" stroke-width="2"/>
+          <rect x="900" y="474" width="260" height="76" rx="10" fill="url(#tdmGlowB)" opacity=".5"/>
+          <circle cx="930" cy="576" r="10" fill="#ff5c7c"/>
+          <circle cx="960" cy="576" r="10" fill="#ffd447"/>
+          <circle cx="990" cy="576" r="10" fill="#57e0b0"/>
+          <rect x="1018" y="570" width="132" height="12" rx="6" fill="#2b3350"/>
+        </g>
+        <g stroke="#ffd447" stroke-width="3" opacity=".85">
+          <path d="M180 300 L260 250 L340 320 L420 236" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g fill="#57e0b0" opacity=".75">
+          <circle cx="260" cy="250" r="6"/>
+          <circle cx="420" cy="236" r="6"/>
+        </g>
+      </svg>
+    </div>
+    <div class="tdm-hero-veil" aria-hidden="true"></div>
+    <div class="tdm-wrap tdm-hero-inner">
+      <div class="tdm-hero-badges">
+        <span class="tdm-tag tdm-tag-gold">官方网站</span>
+        <span class="tdm-tag tdm-tag-mint">每日开赛</span>
+        <span class="tdm-tag">原创 · 正版 · 高清</span>
+      </div>
+      <h1 id="tdmHeroTitle">推特每日比赛</h1>
+      <p class="tdm-hero-sub">每日一个命题，每天一场公平竞技 —— 属于创作者与企业品牌的视频赛事官方门户</p>
+      <p class="tdm-hero-desc">
+        作为深耕短视频竞技赛道的品牌平台，我们以「每日命题、公开评审、社区投票」为核心机制，
+        为创作者提供持续运营的展示舞台，也为合作企业搭建高品质的内容生态入口。这里是推特每日比赛官方网站，
+        所有参赛作品均为原创正版内容。
+      </p>
+      <div class="tdm-hero-actions">
+        <button class="tdm-btn tdm-btn-primary" type="button" data-open="submit">报名今日比赛</button>
+        <a class="tdm-btn tdm-btn-ghost" href="#focus">查看今日焦点作品</a>
+        <a class="tdm-btn tdm-btn-ghost" href="#deep">了解赛事机制</a>
+      </div>
+      <div class="tdm-stats">
+        <div class="tdm-stat"><b data-count="2684">0</b><span>已连续开赛期数</span></div>
+        <div class="tdm-stat"><b data-count="12480">0</b><span>累计参赛创作者</span></div>
+        <div class="tdm-stat"><b data-count="96">0</b><span>作品完播好评率 %</span></div>
+      </div>
+      <p class="tdm-lead" style="margin-top:22px;font-size:13.5px;">
+        企业简介：推特每日比赛由一支专注影像内容与社区运营的团队持续运营，聚焦「每日比赛」这一垂直领域，
+        以公开、透明的评审机制与稳定的内容更新节奏，服务创作者成长与企业品牌传播。平台坚持用户至上与匠心标准，
+        通过赛事、专题、创作者访谈与公开榜单，构建多元、包容、值得信赖的原创内容社区。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== S3 今日焦点：一幅重点大图 + 文字列表 ===== -->
+  <section class="tdm-section" id="focus" aria-labelledby="tdmFocusTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Today's Focus</span>
+        <h2 class="tdm-h2" id="tdmFocusTitle">今日焦点 · <em>推特每日比赛</em> 第 412 期</h2>
+        <p class="tdm-lead">命题「一分钟城市切片」，要求创作者用 60 秒呈现一座城市最真实的呼吸。以下为本期焦点作品与热门条目，均来自官方审核通过的原创正版内容。</p>
+      </div>
+      <a class="tdm-btn tdm-btn-ghost" href="#rank">查看完整榜单</a>
+    </div>
+
+    <div class="tdm-focus-grid">
+      <article class="tdm-focus-main">
+        <div class="tdm-focus-cover">
+          <svg viewBox="0 0 800 450" role="img" aria-label="焦点作品《凌晨四点的早餐街》封面：清晨街道的暖色灯光与蒸汽">
+            <defs>
+              <linearGradient id="tdmF1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2a1f14"/>
+                <stop offset=".5" stop-color="#4b3320"/>
+                <stop offset="1" stop-color="#1a1a26"/>
+              </linearGradient>
+              <linearGradient id="tdmF2" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#ffd447" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#ff9d3d" stop-opacity=".05"/>
+              </linearGradient>
+            </defs>
+            <rect width="800" height="450" fill="url(#tdmF1)"/>
+            <g opacity=".5" fill="#0e0f17">
+              <rect x="0" y="300" width="800" height="150"/>
+              <rect x="60" y="180" width="130" height="120" rx="4"/>
+              <rect x="610" y="160" width="150" height="140" rx="4"/>
+            </g>
+            <rect x="250" y="150" width="300" height="170" rx="8" fill="#191410" stroke="#5a3f24" stroke-width="3"/>
+            <rect x="270" y="180" width="260" height="80" rx="5" fill="url(#tdmF2)"/>
+            <path d="M300 180 q30 -40 60 0 q30 -46 62 0 q26 -34 56 0" fill="none" stroke="#ffe9a8" stroke-width="4" opacity=".7" stroke-linecap="round"/>
+            <circle cx="330" cy="208" r="12" fill="#ffd447"/>
+            <circle cx="400" cy="208" r="12" fill="#ff9d3d"/>
+            <circle cx="470" cy="208" r="12" fill="#ffd447"/>
+            <rect x="300" y="270" width="180" height="8" rx="4" fill="#7d5a33"/>
+            <g fill="#ffd447" opacity=".8">
+              <circle cx="140" cy="280" r="5"/>
+              <circle cx="180" cy="330" r="4"/>
+              <circle cx="640" cy="300" r="5"/>
+              <circle cx="700" cy="350" r="4"/>
+            </g>
+          </svg>
+          <span class="tdm-play">06:12 精选导览</span>
+        </div>
+        <div class="tdm-focus-body">
+          <span class="tdm-tag tdm-tag-gold">今日冠军候选</span>
+          <h3>《凌晨四点的早餐街》· 一分钟城市切片</h3>
+          <p>创作者用长镜头跟随早餐摊主从生火到第一碗汤出锅，剪辑干净、声音层次丰富。评审团认为该片在「真实」与「温暖」之间取得了很好平衡，是本期推特每日比赛最具影响力的作品之一。</p>
+          <div class="tdm-focus-meta">
+            <span>作者：把镜头放低</span>
+            <span>4K 高清 · 60 秒</span>
+            <span>播放 128,430</span>
+            <span>点赞 9,120</span>
+          </div>
+          <div class="tdm-vitem-foot">
+            <div class="tdm-ops">
+              <button class="tdm-op" type="button" data-like="1">♥ 点赞 <b>9120</b></button>
+              <button class="tdm-op" type="button" data-save="1">☆ 收藏</button>
+              <button class="tdm-op" type="button" data-share="1">↗ 分享</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="tdm-list-panel">
+        <article class="tdm-vitem">
+          <div class="tdm-vitem-head">
+            <h3>《地铁末班车的 47 张面孔》</h3>
+            <span class="tdm-tag tdm-tag-hot">高热度</span>
+          </div>
+          <p>以同一节车厢的固定机位，记录深夜归家的人。作品几乎没有解说，靠环境音与面部微表情完成叙事，被视为城市探索类内容的优秀范例。</p>
+          <div class="tdm-vitem-foot">
+            <span>地铁观察员</span><span>播放 86,210</span><span>标签：城市探索</span>
+            <div class="tdm-ops">
+              <button class="tdm-op" type="button" data-like="2">♥ 点赞 <b>6310</b></button>
+              <button class="tdm-op" type="button" data-save="2">☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+        <article class="tdm-vitem">
+          <div class="tdm-vitem-head">
+            <h3>《老菜场的十分钟》</h3>
+            <span class="tdm-tag tdm-tag-mint">评审推荐</span>
+          </div>
+          <p>创作者把镜头交给菜场摊主自拍，完成一次视角反转。片中保留了讨价还价的完整对话，在地文化气息浓厚，评论区互动量很高。</p>
+          <div class="tdm-vitem-foot">
+            <span>菜场导演组</span><span>播放 62,870</span><span>标签：在地文化</span>
+            <div class="tdm-ops">
+              <button class="tdm-op" type="button" data-like="3">♥ 点赞 <b>4875</b></button>
+              <button class="tdm-op" type="button" data-save="3">☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+        <article class="tdm-vitem">
+          <div class="tdm-vitem-head">
+            <h3>《便利店 24 小时》</h3>
+            <span class="tdm-tag">新人上榜</span>
+          </div>
+          <p>新人创作者首次参赛即进入日榜前十。作品以时间戳为线索，串联起便利店在不同时段的客流变化，剪辑节奏稳健，值得关注。</p>
+          <div class="tdm-vitem-foot">
+            <span>夜班小林</span><span>播放 41,360</span><span>标签：日常记录</span>
+            <div class="tdm-ops">
+              <button class="tdm-op" type="button" data-like="4">♥ 点赞 <b>3520</b></button>
+              <button class="tdm-op" type="button" data-save="4">☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+        <article class="tdm-vitem">
+          <div class="tdm-vitem-head">
+            <h3>《雨天骑手的视角》</h3>
+            <span class="tdm-tag tdm-tag-gold">剪辑奖候选</span>
+          </div>
+          <p>第一人称骑行镜头搭配雨声采样，画面与声音同步处理细腻。创作者在简介中公开了完整的调色思路，被许多同好收藏为教程参考。</p>
+          <div class="tdm-vitem-foot">
+            <span>滑轮与雨</span><span>播放 55,940</span><span>标签：创作幕后</span>
+            <div class="tdm-ops">
+              <button class="tdm-op" type="button" data-like="5">♥ 点赞 <b>5140</b></button>
+              <button class="tdm-op" type="button" data-save="5">☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 深度解析（关键词解析 800+ 字） ===== -->
+  <section class="tdm-section" id="deep" aria-labelledby="tdmDeepTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Mechanism &amp; Insight</span>
+        <h2 class="tdm-h2" id="tdmDeepTitle">深度解析 · 推特每日比赛为何能持续运营</h2>
+        <p class="tdm-lead">赛事不是一次性的活动，而是一套需要长期维护的内容生态。以下从机制设计、内容标准与社区治理三个维度，解释推特每日比赛如何保持品质与活力。</p>
+      </div>
+    </div>
+    <div class="tdm-deep tdm-deep-grid">
+      <h3>每日命题机制：把「比赛」做成一种日常节奏</h3>
+      <p>
+        推特每日比赛最核心的设计，是把比赛从「偶发的大事件」改造成「每天都会发生的小事件」。每天北京时间上午十点，
+        官方会在赛事页面公布当日命题与三条评分维度，命题覆盖城市探索、日常记录、教程干货、情感故事、创作幕后等方向，
+        但会刻意控制难度与拍摄门槛，让手机用户与专业团队站在同一条起跑线上。参赛者需要在当天二十四点前上传作品，
+        经系统初审后进入公开评审池。这种节奏看似苛刻，实际上解决了内容社区最常见的两个问题：一是创作者不知道拍什么，
+        二是观众不知道每天来看什么。当命题、截止时间与结果公布形成固定预期，平台就拥有了可被信任的时间坐标，
+        这也是品牌能够持续运营、口碑得以积累的根本原因。
+      </p>
+      <h3>公开评审与多维评分：让「公平」成为可被检验的规则</h3>
+      <p>
+        评审环节由三部分组成：专业评审团、社区投票与完播数据。专业评审团由平台签约的内容主编、往期冠军创作者与合作企业代表组成，
+        他们负责在命题相关性、叙事完整度与技术创新三个维度给出分数；社区投票面向所有注册用户，每个账号每日拥有固定票数，
+        避免刷票；完播数据则作为辅助指标，用来识别那些真正让人看完的作品。三者按比例加权后生成当日榜单，
+        完整的评分明细会在结果页公开，任何创作者都可以查询自己每一项的得分。我们相信，只有让规则透明，
+        「值得信赖」才不是一句口号。平台还设有申诉通道，对评审结果有异议的创作者可在一周内提交材料，
+        由独立复核小组重新审理，这一机制在过去一年中修正了十余例评分偏差，也让社区的信任度稳步上升。
+      </p>
+      <h3>内容标准与版权保护：原创正版是社区的底线</h3>
+      <p>
+        推特每日比赛对内容品质的要求集中在三点：原创、清晰、有意义。原创指画面与声音素材必须由参赛者本人拍摄或合法授权，
+        平台采用素材指纹比对与人工抽检相结合的方式核验；清晰指画质与声音达到基本可观看标准，官方会为创作者提供高清素材包与剪辑指引；
+        有意义则强调作品需要表达具体的生活经验或观点，拒绝空洞的炫技。对于使用他人音乐、影视片段的情况，
+        平台提供正版曲库与授权模板，创作者可免费下载使用。我们同时建立了作品下架与信用分机制，对抄袭、搬运、恶意刷量等行为分级处理，
+        既保护原创者的权益，也保护合作企业的品牌安全。这一套标准执行下来，让推特每日比赛的作品库成为可被检索、可被引用的品质内容资产，
+        而不是一次性的流量消耗品。
+      </p>
+      <h3>创作者成长路径：从一次参赛到长期陪伴</h3>
+      <p>
+        比赛只是入口，成长才是目的。平台为创作者设计了清晰的进阶路径：新人首次参赛可获得流量扶持与剪辑基础课；
+        连续参赛并稳定进入榜单的创作者，可申请成为认证创作者，获得专题推荐、商业合作对接与线下沙龙名额；
+        表现突出的创作者会被邀请参与品牌定制赛事，与企业共同完成传播项目。过去一年，平台共举办线下创作者见面会十二场，
+        覆盖多个城市，许多同好从线上比赛走到线下合作，组成了稳定的创作小组。我们始终认为，
+        一个视频品牌的真正影响力不在于单条爆款，而在于能否让创作者在这里持续获得反馈、技能与伙伴。
+        这正是推特每日比赛坚持「每日」二字的原因——它意味着平台每天都要出现，每天都要回应，每天都要对社区负责。
+      </p>
+      <h3>企业与品牌如何参与：把赛事变成内容生态的接口</h3>
+      <p>
+        对企业而言，推特每日比赛提供的不只是曝光位，而是一套可参与的内容生产机制。合作品牌可以提出命题方向，
+        由平台转化为可执行的比赛任务，创作者围绕真实产品与场景进行创作，形成多元、真实、可复用的影像素材。
+        所有商业合作内容都会在页面显著位置标注「品牌合作」，确保用户知情。平台还会为企业提供赛事数据报告，
+        包括命题参与度、作品完播率与社区讨论关键词，帮助企业理解真实的内容反馈。我们坚持用户至上，
+        也坚持商业合作的边界清晰——只有让创作者、用户与企业三方都能从中获益，赛事才能长期运营下去，
+        这也是我们对「行业领先」与「社会责任」的理解。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== S4 专题企划 ===== -->
+  <section class="tdm-section" id="topics" aria-labelledby="tdmTopicsTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Series &amp; Programs</span>
+        <h2 class="tdm-h2" id="tdmTopicsTitle">专题企划 · <em>推特每日比赛</em> 官方系列赛事</h2>
+        <p class="tdm-lead">除每日命题外，平台每月推出主题系列企划，为创作者提供更长周期的创作空间，也为企业提供更完整的内容合作方案。</p>
+      </div>
+      <a class="tdm-btn tdm-btn-ghost" href="#help">查看报名须知</a>
+    </div>
+    <div class="tdm-topic-grid">
+      <article class="tdm-topic">
+        <div class="tdm-topic-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="冬季创作挑战赛专题封面：雪夜中的取景框与暖色灯光">
+            <defs>
+              <linearGradient id="tdmT1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#131d2b"/>
+                <stop offset=".6" stop-color="#1c2c3f"/>
+                <stop offset="1" stop-color="#0f1520"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#tdmT1)"/>
+            <g fill="#dce8ff" opacity=".5">
+              <circle cx="90" cy="70" r="2.5"/><circle cx="160" cy="40" r="2"/><circle cx="240" cy="90" r="2.5"/>
+              <circle cx="330" cy="50" r="2"/><circle cx="420" cy="80" r="2.5"/><circle cx="530" cy="46" r="2"/>
+              <circle cx="600" cy="100" r="2.5"/><circle cx="120" cy="140" r="2"/><circle cx="500" cy="150" r="2"/>
+            </g>
+            <rect x="180" y="120" width="280" height="160" rx="12" fill="#0c1420" stroke="#6ea8ff" stroke-width="3"/>
+            <rect x="204" y="144" width="232" height="112" rx="7" fill="#1c3550"/>
+            <circle cx="320" cy="200" r="34" fill="#ffd447" opacity=".8"/>
+            <path d="M300 200 L336 182 L336 218 Z" fill="#0c1420"/>
+            <rect x="150" y="290" width="340" height="10" rx="5" fill="#2e4058"/>
+          </svg>
+        </div>
+        <div class="tdm-topic-body">
+          <h3>冬季创作挑战赛 · 光影与温度</h3>
+          <p>以「冷与暖」为主题，鼓励创作者在冬季场景中寻找情感对比。赛事持续六周，设最佳叙事、最佳摄影与社区人气三个奖项。</p>
+          <ul class="tdm-topic-list">
+            <li>《雪夜归途的一百步》· 记录类</li>
+            <li>《暖气片旁的读书声》· 情感故事</li>
+            <li>《冬日手冲的温度曲线》· 实用技巧</li>
+          </ul>
+          <div class="tdm-topic-status">
+            <span class="tdm-tag tdm-tag-hot">报名中</span>
+            <span>11 月 30 日截止 · 已报名 1,284 人</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tdm-topic">
+        <div class="tdm-topic-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="我的城市一分钟专题封面：城市天际线与移动镜头轨迹">
+            <defs>
+              <linearGradient id="tdmT2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#16262a"/>
+                <stop offset=".55" stop-color="#1b3a36"/>
+                <stop offset="1" stop-color="#0e1a1d"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#tdmT2)"/>
+            <g fill="#12312e">
+              <rect x="40" y="180" width="70" height="180"/>
+              <rect x="120" y="140" width="56" height="220"/>
+              <rect x="186" y="200" width="90" height="160"/>
+              <rect x="290" y="110" width="60" height="250"/>
+              <rect x="362" y="168" width="80" height="192"/>
+              <rect x="452" y="132" width="64" height="228"/>
+              <rect x="528" y="190" width="76" height="170"/>
+            </g>
+            <g fill="#57e0b0" opacity=".75">
+              <rect x="136" y="160" width="10" height="10"/>
+              <rect x="304" y="130" width="10" height="10"/>
+              <rect x="466" y="152" width="10" height="10"/>
+              <rect x="546" y="210" width="10" height="10"/>
+            </g>
+            <path d="M40 320 Q200 250 340 300 T620 260" fill="none" stroke="#ffd447" stroke-width="3" stroke-dasharray="10 8" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="tdm-topic-body">
+          <h3>我的城市一分钟 · 地域影像计划</h3>
+          <p>以城市为单位征集一分钟影像，鼓励创作者记录本地街巷、饮食与手艺人。入选作品将进入城市影像地图，长期在平台展示。</p>
+          <ul class="tdm-topic-list">
+            <li>《巷口修鞋摊的三十年》· 在地文化</li>
+            <li>《早市里的方言地图》· 城市探索</li>
+            <li>《夜班公交到终点》· 日常记录</li>
+          </ul>
+          <div class="tdm-topic-status">
+            <span class="tdm-tag tdm-tag-mint">长期征集中</span>
+            <span>每月评选 · 已收录 486 部作品</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tdm-topic">
+        <div class="tdm-topic-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="创作幕后开放日专题封面：剪辑时间线与波形音频">
+            <defs>
+              <linearGradient id="tdmT3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#241a2b"/>
+                <stop offset=".55" stop-color="#301f3a"/>
+                <stop offset="1" stop-color="#171224"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#tdmT3)"/>
+            <rect x="70" y="70" width="500" height="220" rx="12" fill="#150f20" stroke="#8f7bff" stroke-width="3"/>
+            <g stroke="#8f7bff" stroke-width="2" opacity=".6">
+              <path d="M100 120 H540"/><path d="M100 170 H540"/><path d="M100 220 H540"/>
+            </g>
+            <g fill="#ffd447">
+              <rect x="110" y="104" width="120" height="16" rx="4"/>
+              <rect x="250" y="152" width="180" height="16" rx="4"/>
+              <rect x="150" y="202" width="240" height="16" rx="4" fill="#57e0b0"/>
+            </g>
+            <path d="M120 268 q20 -22 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#ff5c7c" stroke-width="2.5" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="tdm-topic-body">
+          <h3>创作幕后开放日 · 剪辑与声音</h3>
+          <p>面向进阶创作者的幕后企划，公开征集成片之外的剪辑过程、调色思路与声音设计笔记，优秀内容将进入官方教程库。</p>
+          <ul class="tdm-topic-list">
+            <li>《我是如何剪出三分钟的呼吸感》· 教程干货</li>
+            <li>《雨声采样现场实录》· 创作幕后</li>
+            <li>《一支片子的调色图层拆解》· 实用技巧</li>
+          </ul>
+          <div class="tdm-topic-status">
+            <span class="tdm-tag">每月更新</span>
+            <span>已上线 3 期 · 教程库持续扩容</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== S5 创作者矩阵：双列简介 ===== -->
+  <section class="tdm-section" id="authors" aria-labelledby="tdmAuthorsTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Creators</span>
+        <h2 class="tdm-h2" id="tdmAuthorsTitle">创作者矩阵 · <em>推特每日比赛</em> 的稳定力量</h2>
+        <p class="tdm-lead">他们来自不同城市与职业，却共同保持着每日参赛的节奏。以下是本期社区推荐的四位认证创作者。</p>
+      </div>
+      <a class="tdm-btn tdm-btn-ghost" href="#help">申请认证创作者</a>
+    </div>
+    <div class="tdm-author-grid">
+      <article class="tdm-author">
+        <span class="tdm-avatar tdm-avatar-a" aria-hidden="true">把镜</span>
+        <div class="tdm-author-info">
+          <h3>把镜头放低 <span class="tdm-verified">认证</span></h3>
+          <p class="tdm-author-field">擅长：城市探索 · 日常记录</p>
+          <div class="tdm-author-nums"><span>作品 <b>268</b></span><span>粉丝 <b>86,400</b></span><span>参赛 <b>412</b> 期</span></div>
+          <p>习惯用低机位拍街头，相信细节比宏大叙事更有力量。过去两年几乎每天参加推特每日比赛，代表作以早餐摊、修车铺与夜班公交为主，作品多次进入日榜前三，也在社区中带动了许多新人开始记录身边的街道。</p>
+          <button class="tdm-author-more" type="button" data-author="把镜头放低">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="tdm-author">
+        <span class="tdm-avatar tdm-avatar-b" aria-hidden="true">菜场</span>
+        <div class="tdm-author-info">
+          <h3>菜场导演组 <span class="tdm-verified">认证</span></h3>
+          <p class="tdm-author-field">擅长：在地文化 · 人物访谈</p>
+          <div class="tdm-author-nums"><span>作品 <b>154</b></span><span>粉丝 <b>52,300</b></span><span>专题 <b>6</b> 期</span></div>
+          <p>由三位前纪录片从业者组成的小团队，专注拍摄菜市场、老社区与手艺人的日常。他们的作品保留大量真实对话与方言，强调不干预的观察方式，是「我的城市一分钟」专题中入选率最高的团队之一。</p>
+          <button class="tdm-author-more" type="button" data-author="菜场导演组">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="tdm-author">
+        <span class="tdm-avatar tdm-avatar-c" aria-hidden="true">地铁</span>
+        <div class="tdm-author-info">
+          <h3>地铁观察员 <span class="tdm-verified">认证</span></h3>
+          <p class="tdm-author-field">擅长：情感故事 · 治愈影像</p>
+          <div class="tdm-author-nums"><span>作品 <b>97</b></span><span>粉丝 <b>41,800</b></span><span>获奖 <b>9</b> 次</span></div>
+          <p>白天是产品经理，晚上是影像创作者。擅长在通勤场景中捕捉陌生人的情绪瞬间，作品节奏安静、留白充足，被社区称为「适合深夜观看的系列」。他坚持每周至少提交三部作品，是推特每日比赛活跃度最高的创作者之一。</p>
+          <button class="tdm-author-more" type="button" data-author="地铁观察员">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="tdm-author">
+        <span class="tdm-avatar tdm-avatar-d" aria-hidden="true">雨声</span>
+        <div class="tdm-author-info">
+          <h3>滑轮与雨 <span class="tdm-verified">认证</span></h3>
+          <p class="tdm-author-field">擅长：创作幕后 · 实用技巧</p>
+          <div class="tdm-author-nums"><span>作品 <b>132</b></span><span>粉丝 <b>63,700</b></span><span>教程 <b>28</b> 篇</span></div>
+          <p>声音设计师出身，专注户外运动与雨景题材，喜欢在作品简介里公开完整的拍摄与调色参数。他把每次参赛都当作一次练习，也乐于回答新人的技术问题，是社区公认的「幕后型」创作者代表。</p>
+          <button class="tdm-author-more" type="button" data-author="滑轮与雨">查看创作者档案</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== 图文索引 ===== -->
+  <section class="tdm-section" id="index" aria-labelledby="tdmIndexTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Editor's Index</span>
+        <h2 class="tdm-h2" id="tdmIndexTitle">编辑索引 · <em>推特每日比赛</em> 值得回看的内容</h2>
+        <p class="tdm-lead">从往期作品中挑出三组主题各异的内容，适合新观众快速了解平台的内容风格与品质标准。</p>
+      </div>
+    </div>
+    <div class="tdm-index-grid">
+      <article class="tdm-index-card">
+        <div class="tdm-index-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="行业观察专题封面：数据折线与播放窗口叠层">
+            <defs>
+              <linearGradient id="tdmI1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#101a2c"/>
+                <stop offset="1" stop-color="#1b2842"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#tdmI1)"/>
+            <g stroke="#2c3d5e" stroke-width="1.5" opacity=".8">
+              <path d="M60 300 H590"/><path d="M60 230 H590"/><path d="M60 160 H590"/><path d="M60 90 H590"/>
+            </g>
+            <path d="M70 280 L160 230 L250 250 L340 170 L430 190 L520 110" fill="none" stroke="#ffd447" stroke-width="4" stroke-linecap="round"/>
+            <g fill="#57e0b0">
+              <circle cx="160" cy="230" r="6"/><circle cx="340" cy="170" r="6"/><circle cx="520" cy="110" r="6"/>
+            </g>
+            <rect x="380" y="220" width="180" height="90" rx="10" fill="#0d1728" stroke="#6ea8ff" stroke-width="2"/>
+            <path d="M430 250 L470 270 L430 290 Z" fill="#6ea8ff" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="tdm-index-body">
+          <span class="tdm-tag">行业观察</span>
+          <h3>《短视频比赛的三条增长曲线》</h3>
+          <p>用数据梳理赛事参与度、完播率与创作者留存之间的关系，适合想了解内容生态运作方式的企业与创作者阅读。</p>
+          <div class="tdm-vitem-foot"><span>播放 34,120</span><span>收藏 2,860</span>
+            <div class="tdm-ops"><button class="tdm-op" type="button" data-like="6">♥ 点赞 <b>2140</b></button></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="tdm-index-card">
+        <div class="tdm-index-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="人物访谈专题封面：双人对谈剪影与录音波形">
+            <defs>
+              <linearGradient id="tdmI2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2a1a22"/>
+                <stop offset="1" stop-color="#3a2230"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#tdmI2)"/>
+            <g fill="#f7d0da" opacity=".85">
+              <circle cx="220" cy="150" r="34"/>
+              <path d="M170 300 q50 -96 100 0 Z"/>
+              <circle cx="420" cy="160" r="30"/>
+              <path d="M376 300 q44 -82 88 0 Z"/>
+            </g>
+            <g stroke="#ff9d3d" stroke-width="3" opacity=".9">
+              <path d="M80 330 q30 -40 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="tdm-index-body">
+          <span class="tdm-tag tdm-tag-hot">人物访谈</span>
+          <h3>《拍了两百期比赛之后，我学会了慢下来》</h3>
+          <p>与把镜头放低的一次长谈，聊坚持、聊倦怠、聊如何在每日命题中保持对生活的敏感度，是平台阅读完成率最高的访谈之一。</p>
+          <div class="tdm-vitem-foot"><span>播放 28,740</span><span>收藏 2,310</span>
+            <div class="tdm-ops"><button class="tdm-op" type="button" data-like="7">♥ 点赞 <b>1890</b></button></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="tdm-index-card">
+        <div class="tdm-index-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="知识科普专题封面：分镜格与光圈示意">
+            <defs>
+              <linearGradient id="tdmI3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#13251f"/>
+                <stop offset="1" stop-color="#1c3a2e"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#tdmI3)"/>
+            <g stroke="#57e0b0" stroke-width="2.5" fill="none">
+              <rect x="60" y="60" width="230" height="110" rx="10"/>
+              <rect x="350" y="60" width="230" height="110" rx="10"/>
+              <rect x="60" y="200" width="230" height="110" rx="10"/>
+              <rect x="350" y="200" width="230" height="110" rx="10"/>
+            </g>
+            <circle cx="175" cy="115" r="30" fill="#ffd447" opacity=".7"/>
+            <circle cx="465" cy="115" r="30" fill="#ff9d3d" opacity=".6"/>
+            <path d="M120 270 L175 230 L230 270 Z" fill="#57e0b0" opacity=".7"/>
+            <path d="M420 255 H520 M470 205 V305" stroke="#6ea8ff" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="tdm-index-body">
+          <span class="tdm-tag tdm-tag-mint">知识科普</span>
+          <h3>《一分钟视频的六个镜头语言》</h3>
+          <p>把景别、轴线与运动镜头讲清楚，并给出可实践的拍摄清单。适合准备参加推特每日比赛的新人作为入门参考。</p>
+          <div class="tdm-vitem-foot"><span>播放 46,580</span><span>收藏 4,120</span>
+            <div class="tdm-ops"><button class="tdm-op" type="button" data-like="8">♥ 点赞 <b>3260</b></button></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== S6 评论：双列短评 ===== -->
+  <section class="tdm-section" id="voices" aria-labelledby="tdmVoicesTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Community Voices</span>
+        <h2 class="tdm-h2" id="tdmVoicesTitle">社区口碑 · 他们这样看 <em>推特每日比赛</em></h2>
+        <p class="tdm-lead">来自创作者、观众与合作企业的真实评价，涵盖赛事体验、内容品质与社区氛围三个维度。</p>
+      </div>
+    </div>
+    <div class="tdm-comment-grid">
+      <article class="tdm-comment">
+        <div class="tdm-comment-head">
+          <span class="tdm-avatar tdm-avatar-e" aria-hidden="true">阿</span>
+          <div><strong>阿岚的取景框</strong><span>参赛创作者 · 连续 60 天</span></div>
+          <span class="tdm-stars">★★★★★</span>
+        </div>
+        <p>最初只是想逼自己每天拍点东西，没想到坚持了两个月。命题机制让我不再纠结拍什么，评审反馈也很具体，能看出每条意见都是认真写的。</p>
+        <div class="tdm-comment-foot"><span>有用 128</span><span>2026-11-18</span></div>
+      </article>
+      <article class="tdm-comment">
+        <div class="tdm-comment-head">
+          <span class="tdm-avatar tdm-avatar-c" aria-hidden="true">周</span>
+          <div><strong>周末看片人</strong><span>普通观众</span></div>
+          <span class="tdm-stars">★★★★☆</span>
+        </div>
+        <p>作为观众，最喜欢的是每天内容不重样。城市切片那一期看得很有共鸣，希望以后能多做一些无障碍相关的题材，让更多人被看见。</p>
+        <div class="tdm-comment-foot"><span>有用 96</span><span>2026-11-16</span></div>
+      </article>
+      <article class="tdm-comment">
+        <div class="tdm-comment-head">
+          <span class="tdm-avatar tdm-avatar-b" aria-hidden="true">合</span>
+          <div><strong>某生活方式品牌市场部</strong><span>合作企业</span></div>
+          <span class="tdm-stars">★★★★★</span>
+        </div>
+        <p>我们参与过一次命题合作，最直观的感受是创作者交上来的内容很真实，没有硬广感。平台给的数据报告也很清晰，帮我们调整了后续的传播方向。</p>
+        <div class="tdm-comment-foot"><span>有用 74</span><span>2026-11-12</span></div>
+      </article>
+      <article class="tdm-comment">
+        <div class="tdm-comment-head">
+          <span class="tdm-avatar tdm-avatar-f" aria-hidden="true">夜</span>
+          <div><strong>夜班小林</strong><span>新人创作者</span></div>
+          <span class="tdm-stars">★★★★★</span>
+        </div>
+        <p>第一次参赛就进了日榜前十，说实话有点意外。后来发现平台会给新人流量扶持，评论区也很友善，没有那种冷嘲热讽的氛围，这点很难得。</p>
+        <div class="tdm-comment-foot"><span>有用 112</span><span>2026-11-10</span></div>
+      </article>
+      <article class="tdm-comment">
+        <div class="tdm-comment-head">
+          <span class="tdm-avatar tdm-avatar-d" aria-hidden="true">剪</span>
+          <div><strong>剪辑师老陈</strong><span>从业十二年</span></div>
+          <span class="tdm-stars">★★★★☆</span>
+        </div>
+        <p>从专业角度看，作品质量整体在水准线以上，但个别获奖片的声音处理还有提升空间。希望平台能把评审的详细评语再公开得彻底一些，对新人帮助更大。</p>
+        <div class="tdm-comment-foot"><span>有用 88</span><span>2026-11-08</span></div>
+      </article>
+      <article class="tdm-comment">
+        <div class="tdm-comment-head">
+          <span class="tdm-avatar tdm-avatar-a" aria-hidden="true">慢</span>
+          <div><strong>慢热型选手</strong><span>参赛创作者</span></div>
+          <span class="tdm-stars">★★★★★</span>
+        </div>
+        <p>申诉通道是真的有用。我的作品曾经因为素材问题被下架，提交了原始拍摄文件后两天内就恢复了，还收到了处理说明。这种透明度让我愿意继续留在这里。</p>
+        <div class="tdm-comment-foot"><span>有用 143</span><span>2026-11-05</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== S6b 榜单 ===== -->
+  <section class="tdm-section" id="rank" aria-labelledby="tdmRankTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Leaderboard</span>
+        <h2 class="tdm-h2" id="tdmRankTitle">本周榜单 · <em>推特每日比赛</em> 热度与口碑</h2>
+        <p class="tdm-lead">榜单按综合评分排序，综合分由专业评审、社区投票与完播数据加权得出，每周一上午更新。</p>
+      </div>
+    </div>
+    <div class="tdm-rank-wrap">
+      <div class="tdm-rank-list" role="table" aria-label="本周作品综合榜">
+        <div class="tdm-rank-row"><span class="tdm-rank-no">1</span><div class="tdm-rank-body"><h3>《凌晨四点的早餐街》</h3><span>把镜头放低 · 城市探索</span></div><span class="tdm-rank-score">96.4</span></div>
+        <div class="tdm-rank-row"><span class="tdm-rank-no">2</span><div class="tdm-rank-body"><h3>《地铁末班车的 47 张面孔》</h3><span>地铁观察员 · 情感故事</span></div><span class="tdm-rank-score">94.1</span></div>
+        <div class="tdm-rank-row"><span class="tdm-rank-no">3</span><div class="tdm-rank-body"><h3>《老菜场的十分钟》</h3><span>菜场导演组 · 在地文化</span></div><span class="tdm-rank-score">92.7</span></div>
+        <div class="tdm-rank-row"><span class="tdm-rank-no">4</span><div class="tdm-rank-body"><h3>《雨天骑手的视角》</h3><span>滑轮与雨 · 创作幕后</span></div><span class="tdm-rank-score">90.5</span></div>
+        <div class="tdm-rank-row"><span class="tdm-rank-no">5</span><div class="tdm-rank-body"><h3>《便利店 24 小时》</h3><span>夜班小林 · 日常记录</span></div><span class="tdm-rank-score">88.9</span></div>
+        <div class="tdm-rank-row"><span class="tdm-rank-no">6</span><div class="tdm-rank-body"><h3>《雪夜归途的一百步》</h3><span>北窗影像 · 情感故事</span></div><span class="tdm-rank-score">87.2</span></div>
+      </div>
+      <aside class="tdm-aside-card">
+        <h3>榜单说明与参赛提示</h3>
+        <p>综合分满分 100 分，其中专业评审占 50%，社区投票占 30%，完播与互动数据占 20%。所有分数明细可在作品详情页展开查看。</p>
+        <ul>
+          <li>每日 10:00 公布命题，24:00 截止上传</li>
+          <li>次日 12:00 公示入围名单与评分明细</li>
+          <li>每周一 10:00 更新周榜与新人榜</li>
+          <li>对结果有异议可在 7 日内提交申诉</li>
+          <li>使用官方高清素材包可获技术加分</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== S7 辅助区：企业动态 / 合作品牌 / FAQ ===== -->
+  <section class="tdm-section" id="help" aria-labelledby="tdmHelpTitle">
+    <div class="tdm-section-head">
+      <div>
+        <span class="tdm-kicker">Updates &amp; Support</span>
+        <h2 class="tdm-h2" id="tdmHelpTitle">企业动态 · 合作品牌 · 常见问题</h2>
+        <p class="tdm-lead">推特每日比赛持续运营的公开信息入口：官方发布的最新动态、合作品牌名单，以及报名与投稿过程中最常被问到的问题。</p>
+      </div>
+    </div>
+    <div class="tdm-third-grid">
+      <div class="tdm-news-card">
+        <h3>企业动态</h3>
+        <ul class="tdm-news-list">
+          <li>
+            <span class="tdm-news-date">11-20</span>
+            <div><h4>冬季创作挑战赛报名开启</h4><p>第六季系列企划正式上线，报名通道将持续至 11 月 30 日，官方同步发布参赛指南。</p></div>
+          </li>
+          <li>
+            <span class="tdm-news-date">11-14</span>
+            <div><h4>高清素材包 v3.2 官方发布</h4><p>新增城市夜景与室内暖光两组素材，包含 4K 视频与免版权音效，创作者可免费下载。</p></div>
+          </li>
+          <li>
+            <span class="tdm-news-date">11-06</span>
+            <div><h4>社区评审规则更新说明</h4><p>社区投票权重由 25% 调整为 30%，并新增异常投票识别机制，细则已在帮助中心公示。</p></div>
+          </li>
+          <li>
+            <span class="tdm-news-date">10-28</span>
+            <div><h4>线下创作者见面会圆满结束</h4><p>来自六个城市的创作者参与剪辑工作坊，现场作品已整理为专题在平台首页展示。</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tdm-partner-card">
+        <h3>合作品牌与伙伴</h3>
+        <div class="tdm-partner-grid">
+          <span class="tdm-partner"><i></i>光影器材实验室</span>
+          <span class="tdm-partner"><i></i>城市影像档案馆</span>
+          <span class="tdm-partner"><i></i>晨雾咖啡工坊</span>
+          <span class="tdm-partner"><i></i>本地生活周刊</span>
+          <span class="tdm-partner"><i></i>南风独立书店</span>
+          <span class="tdm-partner"><i></i>青野户外装备</span>
+        </div>
+        <p style="font-size:12.5px;color:var(--tdm-ink-3);margin-top:14px;">
+          合作内容均标注「品牌合作」，平台坚持内容真实与商业边界清晰，欢迎更多企业加入内容生态建设。
+        </p>
+      </div>
+
+      <div class="tdm-faq-card">
+        <h3>常见问题</h3>
+        <details open>
+          <summary>如何参加推特每日比赛？</summary>
+          <p>注册账号后进入「今日赛事」页面，查看当日命题与评分维度，在 24:00 前通过投稿入口上传作品即可。首次参赛建议先阅读参赛指南。</p>
+        </details>
+        <details>
+          <summary>作品必须当天拍摄吗？</summary>
+          <p>命题要求作品为原创且首次公开发布，拍摄时间不限，但需与当日命题主题相关。使用旧素材重新剪辑的作品需在说明中注明。</p>
+        </details>
+        <details>
+          <summary>可以使用平台曲库以外的音乐吗？</summary>
+          <p>可以，但需提供合法授权证明。为避免版权风险，建议优先使用官方正版曲库与授权模板，下载与使用均免费。</p>
+        </details>
+        <details>
+          <summary>评审结果可以申诉吗？</summary>
+          <p>可以。结果公示后 7 日内，创作者可在作品详情页提交申诉材料，由独立复核小组重新审理，处理结果会以站内通知形式告知。</p>
+        </details>
+        <details>
+          <summary>企业如何发起合作命题？</summary>
+          <p>通过页面底部的合作联系入口提交需求，平台会在三个工作日内回复，并根据品牌目标转化为可执行的比赛任务与内容方案。</p>
+        </details>
+        <details>
+          <summary>新人有机会上榜吗？</summary>
+          <p>有。平台设有新人榜与流量扶持计划，首次参赛作品会获得额外曝光。近半年新人进入日榜前十的比例保持在两成以上。</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- CTA 投稿入口 -->
+    <div class="tdm-cta" id="submit">
+      <div>
+        <h2>今天的命题已经公布，你的作品准备好了吗？</h2>
+        <p>上传作品、参与社区投票、下载官方素材包 —— 推特每日比赛官方网站为每一位创作者保留位置。报名与投稿全程免费。</p>
+      </div>
+      <div class="tdm-hero-actions">
+        <button class="tdm-btn tdm-btn-primary" type="button" data-open="submit">立即报名参赛</button>
+        <button class="tdm-btn tdm-btn-ghost" type="button" data-open="contact">合作与联系</button>
+        <button class="tdm-btn tdm-btn-ghost" type="button" data-open="share">分享赛事页面</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== S8 页脚 ===== -->
+<footer class="tdm-footer">
+  <div class="tdm-wrap">
+    <div class="tdm-footer-grid">
+      <div class="tdm-footer-brand">
+        <a class="tdm-brand" href="#top">
+          <span class="tdm-brand-mark">推</span>
+          <span class="tdm-brand-text">
+            <strong>推特每日比赛</strong>
+            <span>Daily Match Studio</span>
+          </span>
+        </a>
+        <p>推特每日比赛官方网站 · 专注每日创意挑战与原创短视频竞技的内容平台。持续运营、公开透明，为创作者与企业搭建值得信赖的品质内容生态。</p>
+      </div>
+      <div>
+        <h4>赛事</h4>
+        <ul>
+          <li><a href="#focus">今日赛事</a></li>
+          <li><a href="#rank">本周榜单</a></li>
+          <li><a href="#topics">专题企划</a></li>
+          <li><a href="#submit">报名与投稿</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区</h4>
+        <ul>
+          <li><a href="#authors">创作者矩阵</a></li>
+          <li><a href="#voices">社区口碑</a></li>
+          <li><a href="#index">编辑索引</a></li>
+          <li><a href="#help">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#deep">赛事机制</a></li>
+          <li><a href="#help">企业动态</a></li>
+          <li><a href="#help">合作品牌</a></li>
+          <li><a href="#submit">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tdm-footer-bottom">
+      <span>© 2026 推特每日比赛 版权所有 · 官方网站 · 持续运营中</span>
+      <span>原创正版内容保护计划 · 用户至上 · 匠心运营 · 备案号：沪ICP备2026000000号-2</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="tdm-top-btn" type="button" id="tdmTopBtn" aria-label="回到顶部">↑</button>
+
+<!-- Toast -->
+<div class="tdm-toast" id="tdmToast" role="status" aria-live="polite"></div>
+
+<!-- 通用弹窗 -->
+<div class="tdm-modal-mask" id="tdmModalMask" role="dialog" aria-modal="true" aria-labelledby="tdmModalTitle">
+  <div class="tdm-modal">
+    <button class="tdm-modal-close" type="button" id="tdmModalClose" aria-label="关闭弹窗">×</button>
+    <h3 id="tdmModalTitle">标题</h3>
+    <div id="tdmModalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('tdmToast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2200);
+  }
+
+  /* ---------- 移动端导航折叠 ---------- */
+  var burger = document.getElementById('tdmBurger');
+  var mobilePanel = document.getElementById('tdmMobilePanel');
+  if(burger && mobilePanel){
+    burger.addEventListener('click', function(){
+      var open = mobilePanel.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobilePanel.addEventListener('click', function(e){
+      if(e.target && e.target.tagName === 'A'){
+        mobilePanel.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var feedback = document.getElementById('tdmSearchFeedback');
+  var searchIndex = [
+    {t:'凌晨四点的早餐街', k:'今日赛事 城市探索 把镜头放低'},
+    {t:'地铁末班车的 47 张面孔', k:'今日赛事 情感故事 地铁观察员'},
+    {t:'老菜场的十分钟', k:'今日赛事 在地文化 菜场导演组'},
+    {t:'雨天骑手的视角', k:'今日赛事 创作幕后 滑轮与雨'},
+    {t:'冬季创作挑战赛', k:'专题 报名中 光影与温度'},
+    {t:'我的城市一分钟', k:'专题 地域影像计划'},
+    {t:'创作幕后开放日', k:'专题 教程 剪辑'},
+    {t:'本周榜单', k:'榜单 热度 口碑'},
+    {t:'创作者认证', k:'创作者 帮助中心'},
+    {t:'帮助中心', k:'FAQ 投稿 报名'}
+  ];
+  function runSearch(raw){
+    var kw = (raw || '').trim();
+    if(!feedback) return;
+    if(!kw){
+      feedback.classList.remove('is-on');
+      feedback.innerHTML = '';
+      return;
+    }
+    var hits = searchIndex.filter(function(item){
+      return item.t.indexOf(kw) > -1 || item.k.indexOf(kw) > -1;
+    });
+    feedback.classList.add('is-on');
+    if(hits.length){
+      feedback.innerHTML = '为你找到 <b>' + hits.length + '</b> 个与「' + kw + '」相关的结果：' +
+        hits.slice(0,5).map(function(h){ return '《' + h.t + '》'; }).join('、') +
+        '。可继续浏览对应板块查看完整内容。';
+    }else{
+      feedback.innerHTML = '暂未找到与「' + kw + '」完全匹配的内容。你仍可浏览<a href="#focus" style="color:#ffd447;font-weight:700;">今日赛事</a>或<a href="#help" style="color:#ffd447;font-weight:700;">帮助中心</a>获取更多信息。';
+    }
+    toast('已为你检索「' + kw + '」');
+  }
+  var sBtn = document.getElementById('tdmSearchBtn');
+  var sInput = document.getElementById('tdmSearchInput');
+  if(sBtn && sInput){
+    sBtn.addEventListener('click', function(){ runSearch(sInput.value); });
+    sInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(sInput.value); }
+    });
+  }
+  var mBtn = document.getElementById('tdmMobileSearchBtn');
+  var mInput = document.getElementById('tdmMobileSearchInput');
+  if(mBtn && mInput){
+    mBtn.addEventListener('click', function(){
+      runSearch(mInput.value);
+      mobilePanel.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  }
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.querySelectorAll('[data-like]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var b = btn.querySelector('b');
+      var num = b ? parseInt(b.textContent.replace(/[^\d]/g,''), 10) : 0;
+      var liked = btn.classList.toggle('is-liked');
+      if(b){
+        b.textContent = liked ? (num + 1) : (num - 1);
+      }
+      toast(liked ? '已点赞，感谢支持' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('[data-save]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('is-saved');
+      btn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      toast(saved ? '已收藏到个人片单' : '已取消收藏');
+    });
+  });
+
+  /* ---------- 弹窗 ---------- */
+  var mask = document.getElementById('tdmModalMask');
+  var modalTitle = document.getElementById('tdmModalTitle');
+  var modalBody = document.getElementById('tdmModalBody');
+  function openModal(title, html){
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    mask.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('tdmModalClose').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){ if(e.target === mask) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && mask.classList.contains('is-open')) closeModal(); });
+
+  var shareHtml =
+    '<p>将赛事页面分享给同好，一起参加推特每日比赛。</p>' +
+    '<div class="tdm-copy-row"><input id="tdmShareLink" type="text" readonly value="推特每日比赛 · 官方赛事页"><button class="tdm-btn tdm-btn-primary tdm-btn-mini" type="button" id="tdmCopyBtn">复制链接</button></div>' +
+    '<p style="margin-top:14px;font-size:12.5px;color:#767e9e;">也可以通过微信、微博、QQ 等常用平台转发，分享后邀请好友参与社区投票。</p>' +
+    '<div class="tdm-modal-actions"><button class="tdm-btn tdm-btn-ghost tdm-btn-mini" type="button" id="tdmShareWx">微信分享</button><button class="tdm-btn tdm-btn-ghost tdm-btn-mini" type="button" id="tdmShareWb">微博分享</button></div>';
+
+  var submitHtml =
+    '<p>填写以下信息即可报名参赛或投稿，审核结果会在三个工作日内通过站内通知告知。</p>' +
+    '<label for="tdmFormName">创作者昵称</label><input id="tdmFormName" type="text" placeholder="请输入昵称">' +
+    '<label for="tdmFormType">参与类型</label><select id="tdmFormType"><option>参加今日命题</option><option>报名冬季挑战赛</option><option>提交幕后教程</option><option>申请认证创作者</option></select>' +
+    '<label for="tdmFormDesc">作品说明</label><textarea id="tdmFormDesc" placeholder="简要描述作品主题、拍摄方式与创作思路"></textarea>' +
+    '<div class="tdm-modal-actions"><button class="tdm-btn tdm-btn-ghost tdm-btn-mini" type="button" id="tdmSubmitCancel">取消</button><button class="tdm-btn tdm-btn-primary tdm-btn-mini" type="button" id="tdmSubmitOk">提交报名</button></div>';
+
+  var contactHtml =
+    '<p>企业合作、命题共建、品牌内容定制，欢迎与我们联系。平台将在三个工作日内回复。</p>' +
+    '<label for="tdmContactOrg">企业或团队名称</label><input id="tdmContactOrg" type="text" placeholder="请输入名称">' +
+    '<label for="tdmContactWay">联系方式</label><input id="tdmContactWay" type="text" placeholder="邮箱或常用联系方式">' +
+    '<label for="tdmContactMsg">合作意向</label><textarea id="tdmContactMsg" placeholder="简要描述合作方向与预期"></textarea>' +
+    '<div class="tdm-modal-actions"><button class="tdm-btn tdm-btn-ghost tdm-btn-mini" type="button" id="tdmContactCancel">取消</button><button class="tdm-btn tdm-btn-primary tdm-btn-mini" type="button" id="tdmContactOk">提交需求</button></div>';
+
+  var authorData = {
+    '把镜头放低': '城市探索与日常记录方向的认证创作者，参赛 412 期，代表作《凌晨四点的早餐街》。个人主页长期公开拍摄坐标与调色参数，是社区中持续输出频率最高的创作者之一。',
+    '菜场导演组': '由三位前纪录片从业者组成的创作团队，专注在地文化与人物访谈，代表作《老菜场的十分钟》。团队坚持不干预的观察方式，作品多次获得专题推荐。',
+    '地铁观察员': '情感故事与治愈影像方向的认证创作者，擅长在通勤场景中捕捉陌生人的情绪瞬间。每周稳定提交作品，曾获九次赛事奖项。',
+    '滑轮与雨': '声音设计师出身的创作幕后型作者，专注户外运动与雨景题材，公开完整拍摄与调色流程，代表教程《一支片子的调色图层拆解》。'
+  };
+
+  document.querySelectorAll('[data-author]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-author');
+      openModal(name + ' · 创作者档案',
+        '<p><strong style="color:#57e0b0;">认证创作者</strong></p>' +
+        '<p>' + (authorData[name] || '这位创作者来自推特每日比赛社区。') + '</p>' +
+        '<p style="margin-top:12px;">擅长领域、作品数据与最新参赛记录可在创作者主页查看，欢迎关注其后续作品。</p>' +
+        '<div class="tdm-modal-actions"><button class="tdm-btn tdm-btn-primary tdm-btn-mini" type="button" data-close-ok>知道了</button></div>');
+    });
+  });
+
+  document.addEventListener('click', function(e){
+    var target = e.target.closest('[data-open]');
+    if(target){
+      var type = target.getAttribute('data-open');
+      if(type === 'submit') openModal('报名与投稿', submitHtml);
+      if(type === 'contact') openModal('合作与联系', contactHtml);
+      if(type === 'share') openModal('分享赛事页面', shareHtml);
+      return;
+    }
+    if(e.target.closest('[data-close-ok]')){ closeModal(); return; }
+
+    if(e.target.id === 'tdmCopyBtn'){
+      var linkInput = document.getElementById('tdmShareLink');
+      if(linkInput && navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(linkInput.value).then(function(){
+          toast('链接已复制，去分享给同好吧');
+        }).catch(function(){
+          linkInput.select();
+          toast('请手动复制链接');
+        });
+      }else if(linkInput){
+        linkInput.select();
+        toast('请手动复制链接');
+      }
+      return;
+    }
+    if(e.target.id === 'tdmShareWx'){ toast('已生成微信分享卡片，请在微信中粘贴'); return; }
+    if(e.target.id === 'tdmShareWb'){ toast('已生成微博分享文案，请在微博中粘贴'); return; }
+
+    if(e.target.id === 'tdmSubmitCancel' || e.target.id === 'tdmContactCancel'){ closeModal(); return; }
+    if(e.target.id === 'tdmSubmitOk'){
+      var nm = document.getElementById('tdmFormName');
+      if(nm && !nm.value.trim()){ toast('请先填写创作者昵称'); nm.focus(); return; }
+      closeModal(); toast('报名已提交，请留意站内通知');
+      return;
+    }
+    if(e.target.id === 'tdmContactOk'){
+      var org = document.getElementById('tdmContactOrg');
+      if(org && !org.value.trim()){ toast('请先填写企业或团队名称'); org.focus(); return; }
+      closeModal(); toast('合作需求已提交，三个工作日内回复');
+      return;
+    }
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var topBtn = document.getElementById('tdmTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ topBtn.classList.add('is-on'); }
+    else{ topBtn.classList.remove('is-on'); }
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 数据数字滚动 ---------- */
+  var counted = false;
+  function countUp(){
+    if(counted) return;
+    var items = document.querySelectorAll('[data-count]');
+    if(!items.length) return;
+    var rect = items[0].getBoundingClientRect();
+    if(rect.top < window.innerHeight + 80){
+      counted = true;
+      items.forEach(function(el){
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var start = null;
+        var dur = 1100;
+        function step(ts){
+          if(!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased).toLocaleString('zh-CN');
+          if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll', countUp, {passive:true});
+  window.addEventListener('load', countUp);
+  countUp();
+})();
+</script>
+</body>
+              </html>
